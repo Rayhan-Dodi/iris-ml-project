@@ -1,0 +1,30 @@
+---
+title: "Iris Machine Learning Project"
+output: pdf_document
+---
+
+# Introduction
+This project uses the Iris dataset for classification using supervised learning.
+
+# Methods
+Two models are used: Logistic Regression and Random Forest.
+
+```{r}
+data(iris)
+summary(iris)
+```
+
+# Model Training
+```{r}
+library(caret)
+library(randomForest)
+library(nnet)
+
+set.seed(123)
+index <- createDataPartition(iris$Species, p=0.7, list=FALSE)
+train <- iris[index,]
+test <- iris[-index,]
+```
+
+# Results
+Random Forest is expected to perform better due to nonlinear modeling.
